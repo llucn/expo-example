@@ -3,6 +3,7 @@ import { TextInput, SafeAreaView, StyleSheet } from 'react-native';
 import { createWebView, bridge } from "@webview-bridge/react-native";
 
 import { ThemedView } from '@/components/ThemedView';
+import { useThemeColor } from '@/hooks/useThemeColor';
 
 // Register functions in the bridge object in your React Native code
 export const appBridge = bridge({
@@ -20,6 +21,7 @@ export const { WebView, postMessage } = createWebView({
 });
 
 export default function TabTwoScreen() {
+  const color = useThemeColor({}, 'text');
   const [ uri, setUri ] = useState<string>("http://192.168.10.1");
   const [ text, setText ] = useState<string>(uri);
 
@@ -27,7 +29,7 @@ export default function TabTwoScreen() {
     <SafeAreaView style={{ height: "100%" }}>
       <ThemedView>
         <TextInput 
-          style={styles.input}
+          style={{...styles.input, color}}
           value={text} 
           onChangeText={s => setText(s)} 
           keyboardType='url'
