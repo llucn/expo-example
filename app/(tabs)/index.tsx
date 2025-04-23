@@ -15,9 +15,6 @@ export default function HomeScreen() {
         />
       }>
       <ThemedView>
-        <ThemedText type="title">Expo Example</ThemedText>
-      </ThemedView>
-      <ThemedView>
         <ThemedText><Link href={'/camera'}>camera</Link></ThemedText>
         <ThemedText><Link href={'/nfc'}>nfc</Link></ThemedText>
       </ThemedView>
