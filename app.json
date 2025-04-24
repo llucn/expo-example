@@ -34,6 +34,26 @@
           "resizeMode": "contain",
           "backgroundColor": "#ffffff"
         }
+      ],
+      [
+        "expo-build-properties",
+        {
+          "android": {
+            "compileSdkVersion": 35
+          },
+          "ios": {
+            "deploymentTarget": "15.5"
+          }
+        }
+      ],
+      [
+        "react-native-nfc-manager",
+        {
+          "nfcPermission": "Interact with nearby NFC devices",
+          "selectIdentifiers": ["A0000002471001", "D2760000850100", "D2760000850101"],
+          "systemCodes": ["8005", "8008", "0003", "fe00", "90b7", "927a", "12FC", "86a7"],
+          "includeNdefEntitlement": true
+        }
       ]
     ],
     "experiments": {
