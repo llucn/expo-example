@@ -1,4 +1,4 @@
-import { Image, Pressable, Button } from 'react-native';
+import { Image } from 'react-native';
 import { Link } from 'expo-router';
 
 import ParallaxScrollView from '@/components/ParallaxScrollView';
@@ -15,8 +15,8 @@ export default function HomeScreen() {
         />
       }>
       <ThemedView>
-        <ThemedText><Link href={'/camera'}>camera</Link></ThemedText>
-        <ThemedText><Link href={'/nfc'}>nfc</Link></ThemedText>
+        <ThemedText><Link href={'/camera'}>Camera</Link></ThemedText>
+        <ThemedText><Link href={'/nfc'}>NFC</Link></ThemedText>
       </ThemedView>
     </ParallaxScrollView>
   );
