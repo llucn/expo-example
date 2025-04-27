@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { Pressable } from 'react-native';
+import { Button, Pressable } from 'react-native';
 import { Link } from 'expo-router';
 import NfcManager, {NfcTech, Ndef} from 'react-native-nfc-manager';
 
@@ -84,17 +84,14 @@ export default function NfcHomeScreen() {
 
   return (
     <ThemedView>
-      <Pressable onPress={() => console.log(readMifare())}>
-        <ThemedText>Read Mifare</ThemedText>
-      </Pressable>
-      <Pressable onPress={() => readNdef()}>
-        <ThemedText>Read NDEF</ThemedText>
-      </Pressable>
-      <Pressable onPress={() => writeNdef({type: 'type', value: 'value'})}>
-        <ThemedText>Write NDEF</ThemedText>
-      </Pressable>
+      <Button title='Read Mifare' onPress={() => console.log(readMifare())}/>
+      <Button title='Read NDEF' onPress={() => readNdef()} />
+      <Button title='Write NDEF' onPress={() => writeNdef({type: 'type', value: 'value'})} />
       <Link href='/nfc/nfcIntegration'>
         <ThemedText>NFC Integration</ThemedText>
+      </Link>
+      <Link href='/nfc/prompt'>
+        <ThemedText>NFC Prompt</ThemedText>
       </Link>
     </ThemedView>
   );

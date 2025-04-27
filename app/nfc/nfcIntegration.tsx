@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { Button, Pressable } from 'react-native';
 import NfcManager, { NfcEvents } from 'react-native-nfc-manager';
 
 import { ThemedText } from '@/components/ThemedText';
@@ -7,11 +8,8 @@ import { ThemedView } from '@/components/ThemedView';
 export default function NFCIntegrationScreen() {
   const [ value, setValue ] = useState<string>('N/A');
   const [ payload, setPayload ] = useState<number[]>([]);
-  
-  useEffect(() => {
-    // Initialize NFC Manager
-    NfcManager.start();
 
+  const read = () => {
     // Add event listeners
     NfcManager.setEventListener(NfcEvents.DiscoverTag, (tag: any) => {
       console.log('Tag Discovered', tag);
@@ -25,6 +23,11 @@ export default function NFCIntegrationScreen() {
 
     // Enable NFC reading
     NfcManager.registerTagEvent();
+  };
+  
+  useEffect(() => {
+    // Initialize NFC Manager
+    NfcManager.start();
 
     // Clean up
     return () => {
@@ -36,6 +39,7 @@ export default function NFCIntegrationScreen() {
 
   return (
     <ThemedView>
+      <Button title='Click Here to Read NFC' onPress={() => read()} />
       <ThemedText>NFC Tag: {JSON.stringify(value)}</ThemedText>
       <ThemedText>Payload: {String.fromCharCode(...payload)}</ThemedText>
     </ThemedView>
