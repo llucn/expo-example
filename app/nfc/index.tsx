@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { Button, Pressable } from 'react-native';
+import { Button } from 'react-native';
 import { Link } from 'expo-router';
 import NfcManager, {NfcTech, Ndef} from 'react-native-nfc-manager';
 
