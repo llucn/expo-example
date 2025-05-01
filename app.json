@@ -47,6 +47,21 @@
         }
       ],
       [
+        "react-native-vision-camera",
+        {
+          "cameraPermissionText": "Example needs access to your Camera.",
+          "enableMicrophonePermission": true,
+          "microphonePermissionText": "Example needs access to your Microphone."
+        }
+      ],
+      [
+        "expo-android-app-gradle-dependencies",
+        {
+          "spacing": "    ",
+          "dependencies": ["com.google.mlkit:barcode-scanning:17.3.0"]
+        }
+      ],
+      [
         "react-native-nfc-manager",
         {
           "nfcPermission": "Interact with nearby NFC devices",
