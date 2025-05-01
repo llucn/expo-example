@@ -32,6 +32,7 @@ export default function RootLayout() {
       <Stack>
         <Stack.Screen name="(tabs)" options={{ headerShown: true, headerTitle: 'Expo Example' }} />
         <Stack.Screen name="+not-found" />
+        <Stack.Screen name='camera/codeScanner' options={{headerShown: false}} />
       </Stack>
       <StatusBar style="auto" />
     </ThemeProvider>
