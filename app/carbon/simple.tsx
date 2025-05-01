@@ -2,6 +2,7 @@ import { useRef, useState } from 'react';
 import { Dimensions, Image, ScrollView, StyleSheet } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import ArrowRightIcon from '@carbon/icons/es/arrow--right/20';
+import AddIcon from '@carbon/icons/es/add/16';
 import {
   Text as CarbonText, 
   TextProps as CarbonTextProps, 
@@ -39,7 +40,6 @@ export default function SimpleScreen() {
         />
         <CarbonButton 
           text='Nulla Pariatur'
-          icon={ArrowRightIcon}
           onPress={() => console.log(text)}
         />
       </ScrollView>

@@ -1,7 +1,3 @@
-import ArrowLeftIcon from '@carbon/icons/es/arrow--left/32';
-import ArrowRightIcon from '@carbon/icons/es/arrow--right/20';
-import FlashIcon from '@carbon/icons/es/flash/32';
-import FlashOffIcon from '@carbon/icons/es/flash--off/32';
 import {useIsFocused} from '@react-navigation/core';
 import {router, useLocalSearchParams} from 'expo-router';
 import * as React from 'react';
@@ -9,12 +5,12 @@ import {useCallback, useEffect, useState} from 'react';
 import {Linking, Pressable, StyleSheet, View} from 'react-native';
 import StaticSafeAreaInsets from 'react-native-static-safe-area-insets';
 import {Camera, useCameraDevice, useCodeScanner} from 'react-native-vision-camera';
-import {Button as CarbonButton, ButtonProps, ButtonProps as CarbonButtonProps, CarbonIcon} from '@carbon/react-native';
+import IonIcon from 'react-native-vector-icons/Ionicons';
 
 import type {CameraPermissionStatus, Code} from 'react-native-vision-camera';
 
 import {useIsForeground} from '@/hooks/useIsForeground';
-import {deleteCallback, getCallback} from '@/utils/navigationHelper';
+import {deleteCallback} from '@/utils/navigationHelper';
 
 export default function CodeScannerScreen() {
   const {callbackHandle} = useLocalSearchParams();
@@ -89,28 +85,14 @@ export default function CodeScannerScreen() {
 			)}
 
 			<View style={styles.rightButtonRow}>
-				<Pressable style={styles.buttonContainer}>
-          <CarbonButton
-            disableDesignPadding
-            text=''
-            onPress={() => setTorch(!torch)}
-			      style={styles.button}
-            icon={torch ? FlashIcon : FlashOffIcon}
-			      kind='tertiary'
-		      />
+        <Pressable style={styles.button} onPress={() => setTorch(!torch)}>
+          <IonIcon name={torch ? 'flash' : 'flash-off'} color='white' size={24} />
 				</Pressable>
 			</View>
 
 			<View style={styles.backButton}>
-				<Pressable style={styles.buttonContainer}>
-          <CarbonButton
-            disableDesignPadding
-            text=''
-            onPress={back}
-			      style={styles.button}
-            icon={ArrowLeftIcon}
-			      kind='tertiary'
-		      />
+        <Pressable style={styles.button} onPress={back}>
+          <IonIcon name='chevron-back' color='white' size={35} />
 				</Pressable>
 			</View>
 		</View>
@@ -122,15 +104,14 @@ const styles = StyleSheet.create({
 		flex: 1,
 		backgroundColor: 'black',
 	},
-	buttonContainer: {
+	button: {
 		marginBottom: 15,
 		width: 40,
 		height: 40,
+		borderRadius: 40 / 2,
+		backgroundColor: 'rgba(140, 140, 140, 0.3)',
 		justifyContent: 'center',
 		alignItems: 'center',
-	},
-	button: {
-		borderWidth: 0,
 	},
 	rightButtonRow: {
 		position: 'absolute',
