@@ -4,7 +4,7 @@ type AnyFunction = (...args: any[]) => any;
 
 const callbackMap = new Map<string | string[], AnyFunction>();
 
-function randomStringId() {
+export function randomStringId() {
   return (new Date().getTime().toString() + Math.random().toString()).replace('.', '');
 }
 

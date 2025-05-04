@@ -10,7 +10,7 @@ import IonIcon from 'react-native-vector-icons/Ionicons';
 import type {CameraPermissionStatus, Code} from 'react-native-vision-camera';
 
 import {useIsForeground} from '@/hooks/useIsForeground';
-import {deleteCallback} from '@/utils/navigationHelper';
+import {deleteCallback, getCallback} from '@/utils/navigationHelper';
 
 export default function CodeScannerScreen() {
   const {callbackHandle} = useLocalSearchParams();
@@ -32,10 +32,9 @@ export default function CodeScannerScreen() {
 
   const onCodeScanned = useCallback((codes: Code[]) => {
     const value = codes[0]?.value;
-    // const callback = getCallback(callbackHandle);
+    const callback = getCallback(callbackHandle);
     console.log(`onCodeScanned callback(${value})`);
-    // callback(value);
-    deleteCallback(callbackHandle);
+    callback(value);
     router.back();
   }, []);
 
