@@ -18,6 +18,7 @@ export default function HomeScreen() {
         <ThemedText><Link href={'/camera'}>Camera</Link></ThemedText>
         <ThemedText><Link href={'/carbon'}>Carbon</Link></ThemedText>
         <ThemedText><Link href={'/nfc'}>NFC</Link></ThemedText>
+        <ThemedText><Link href={'/location'}>Location</Link></ThemedText>
       </ThemedView>
     </ParallaxScrollView>
   );
